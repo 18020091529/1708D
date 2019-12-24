@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.ryl.cms.dao.FavDao">
+	<select id="favlist" resultType="fav">
+	
+	SELECT * FROM cms_fav WHERE user_id=#{integer}
+	
+	</select>
+	
+	<insert id="add">
+	INSERT INTO cms_fav(TEXT,url,user_id,created)VALUES(#{text},#{url},#{user_id},NOW());
+
+	</insert>
+	
+	<delete id="delete" parameterType="int">
+	DELETE FROM cms_fav WHERE id =#{id}
+	</delete>
+	
+
+</mapper>	
